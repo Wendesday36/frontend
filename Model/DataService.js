@@ -1,6 +1,6 @@
 class DataService {
     constructor() {}
-    getAxiosData(url,callback) {
+    getAxiosData(url,callback,hibaCallback) {
       axios
         .get(url)
         .then(function (response) {
@@ -11,12 +11,12 @@ class DataService {
           console.log("Statusz szoveg", response.statusText);
           console.log("Valasz fejlec", response.headers);
           console.log("Valasz config", response.config);
-          callback(response.data)
+          callback(response.data.nevek)
         })
         .catch(function (error) {
           // handle error
-       console.log(error);
-         /* hibaCallback(error) */
+       
+          hibaCallback(error) 
         })
         .finally(function () {
           // always executed
