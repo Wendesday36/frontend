@@ -1,5 +1,7 @@
 class DataService {
-    constructor() {}
+    constructor() {
+      axios.defaults.baseURL = "http://localhost:8000/"
+    }
     getAxiosData(url,callback,hibaCallback) {
       axios
         .get(url)
@@ -11,7 +13,7 @@ class DataService {
           console.log("Statusz szoveg", response.statusText);
           console.log("Valasz fejlec", response.headers);
           console.log("Valasz config", response.config);
-          callback(response.data.nevek)
+          callback(response.data)
         })
         .catch(function (error) {
           // handle error
@@ -35,6 +37,7 @@ xhr.send(); */
 
     }
     postAxiosData(url,data){
+      console.log(data)
         axios
             .post(url,data) 
                 /* headers:{
@@ -48,6 +51,38 @@ xhr.send(); */
                 console.log("hiba",error)
             })
     }
+    putAxiosData(url,data){
+      console.log(data)
+      console.log(`${url}/${data.id}`)
+      axios
+          .put(`${url}/${data.id}`,data) 
+              /* headers:{
+                  "X-CSRF-TOKEN":response.headers["x-csrf-token"]
+              } */
+          
+          .then((response)=> {
+              console.log("RESP",response)
+          })
+          .catch((error) => {
+              console.log("hiba",error)
+          })
+  }
+
+    deleteAxiosData(url,id){
+      console.log(`${url}/${id}`)
+      axios
+          .delete(`${url}/${id}`) 
+              /* headers:{
+                  "X-CSRF-TOKEN":response.headers["x-csrf-token"]
+              } */
+          
+          .then((response)=> {
+              console.log("RESP",response)
+          })
+          .catch((error) => {
+              console.log("hiba",error)
+          })
+  }
     
 
   }

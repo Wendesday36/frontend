@@ -3,17 +3,22 @@ import AdatView from "../View/AdatView.js";
 import HibaView from "../View/HibaView.js";
 import UrlapView from "../View/Urlap/UrlapView.js";
 import DataService from "../Model/DataService.js";
-const ALAPVEGPONT = "http://localhost:8000/writers"
 class Controller {
 
     constructor() {
         this.dataservice = new DataService();
-        this.dataservice.getAxiosData(ALAPVEGPONT,this.adatokMegj,
+        this.dataservice.getAxiosData("api/writers",this.adatokMegj,
             this.hibaMegj)
-        this.dataservice.postAxiosData(ALAPVEGPONT,{
+       /*  this.dataservice.postAxiosData("api/writers",{
             "nev" : "Valaki",
             "szul":1589,
-        })
+        }) */
+       /*  this.dataservice.putAxiosData("api/writers",{
+          id:1,
+          nev:"Vlamai József Attila",
+          szul:1485,
+        }) */
+        
        
     this.adatleiro = new AdatModel();
     console.log(this.adatleiro.leiro);
@@ -24,6 +29,7 @@ class Controller {
     });
     $(window).on("torles", (event) => {
         console.log(event.detail);
+        this.dataservice.deleteAxiosData("api/writers",event.detail)
       });
       $(window).on("megse", (event) => {
         console.log(event.detail);
@@ -32,10 +38,10 @@ class Controller {
         console.log(event.detail);
       });
     }
-    adatokMegj(lista, leiro) {
+    adatokMegj(lista) {
         // console.log(lista)
-        console.log(leiro);
-        new AdatView(lista, $(".lista"), leiro);
+        /* console.log(leiro); */
+        new AdatView(lista, $(".lista"));
       }
       hibaMegj(error) {
         console.log(error);

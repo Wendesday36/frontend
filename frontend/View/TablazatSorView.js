@@ -37,7 +37,7 @@ class TablazatSor{
     }
     #sor() {
       let txt = "";
-      txt+="<tbody>"
+     
       txt += "<tr>";
       for (const key in this.#adat) {
         const element = this.#adat[key];
@@ -47,7 +47,7 @@ class TablazatSor{
       <span   class="kesz">✅</span> 
       <span   class="megse" >❌</span> </td>`;
       txt += `</tr>`;
-      txt+="</tbody>"
+     
   
       this.tablaElem.append(txt);
     }

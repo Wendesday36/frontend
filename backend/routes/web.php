@@ -14,13 +14,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-
-
-
-});
-Route::get('/writers', [Writercontroller::class, 'index']);
-Route::post('/writers', [Writercontroller::class, 'store']);
-Route::put('/writers/{id}', [Writercontroller::class, 'update']);
-Route::delete('/writers/{id}', [Writercontroller::class, 'destroy']);
