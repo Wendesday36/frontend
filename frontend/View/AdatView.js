@@ -1,17 +1,18 @@
 import TablazatSorView from "./TablazatSorView.js";
 class AdatView {
   #lista = [];
-    #leiro
+  #leiro
   constructor(lista, szuloElem,leiro) {
     this.#lista = lista;
     this.#leiro = leiro;
-    szuloElem.append(`<table class= table  table-hover ><tbody>`);
-    this.tablaElem = szuloElem.find("tbody");
+    szuloElem.append(`<table class= table  table-hover table-striped >`);
+    this.tablaElem = szuloElem.children("table");
     console.log(leiro)
     this.megjelenit();
   }
   megjelenit() {
     this.fejlec()
+    this.tablaElem.append("<tbody>")
     this.#lista.forEach((elem, index) => {
       new TablazatSorView(elem, this.tablaElem, index);
     });

@@ -9,42 +9,39 @@ class Controller {
         this.dataservice = new DataService();
         this.dataservice.getAxiosData("api/writers",this.adatokMegj,
             this.hibaMegj)
-       /*  this.dataservice.postAxiosData("api/writers",{
-            "nev" : "Valaki",
-            "szul":1589,
-        }) */
-       /*  this.dataservice.putAxiosData("api/writers",{
-          id:1,
-          nev:"Vlamai József Attila",
-          szul:1485,
-        }) */
+       
         
        
     this.adatleiro = new AdatModel();
     console.log(this.adatleiro.leiro);
    
-    this.UrlapView = new UrlapView($(".urlap"), this.adatleiro.leiro);
+    this.UrlapView = new UrlapView($(".urlap"), this.adatleiro.leiro());
+    
     $(window).on("katt", (event) => {
-      console.log(event.detail);
+      console.log("katt",event.detail);
+      this.dataservice.postAxiosData("api/writers",event.detail)
     });
     $(window).on("torles", (event) => {
-        console.log(event.detail);
-        this.dataservice.deleteAxiosData("api/writers",event.detail)
+        //console.log("torles",event.detail);
+        this.dataservice.deleteAxiosData("api/writers",event.detail.id)
       });
       $(window).on("megse", (event) => {
-        console.log(event.detail);
+        //console.log("megse",event.detail);
       });
       $(window).on("kesz", (event) => {
-        console.log(event.detail);
+        //console.log("kesz",event.detail);
+        this.dataservice.putAxiosData("api/writers",event.detail.index)
+        
       });
     }
-    adatokMegj(lista) {
+    adatokMegj =(lista)=> {
         // console.log(lista)
-        /* console.log(leiro); */
-        new AdatView(lista, $(".lista"));
+      // console.log(leiro); 
+        new AdatView(lista, $(".lista"),this.adatleiro.leiro());
       }
+      
       hibaMegj(error) {
-        console.log(error);
+        //console.log(error);
         new HibaView(error, $(".lista"));
       }
   }

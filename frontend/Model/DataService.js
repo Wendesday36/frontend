@@ -17,8 +17,8 @@ class DataService {
         })
         .catch(function (error) {
           // handle error
-       
-          hibaCallback(error) 
+         /*  hibaCallback(error)  */
+         console.log(error)
         })
         .finally(function () {
           // always executed
@@ -70,6 +70,7 @@ xhr.send(); */
 
     deleteAxiosData(url,id){
       console.log(`${url}/${id}`)
+      
       axios
           .delete(`${url}/${id}`) 
               /* headers:{

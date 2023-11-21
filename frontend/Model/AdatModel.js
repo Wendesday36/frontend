@@ -7,7 +7,7 @@ class AdatModel{
     /* getLeiro() {
       return this.#leiro;
     } */
-    get leiro(){
+    leiro(){
       return this.#leiro;
     }}
 

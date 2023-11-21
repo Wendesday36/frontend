@@ -1,4 +1,7 @@
 export const urlapleiro={
+    sorszam:{
+        megj:"Sorszám"
+    },
     nev:{
         megj:"Név",
         type:"text",
@@ -12,11 +15,17 @@ export const urlapleiro={
         type:"number",
         placeholder:"2000",
         value:"2000",
-        regex:{
+        
             min:1000,
-            max:2023
-        },
+            max:2023,
+        
         valid:"1000 és 2023 közötti számot várunk"
+    },
+    letrehozva:{
+        megj:"Létrehozva"
+    },
+    modositva:{
+        megj:"Módosítva"
     },
     gombok:{
         megj:"Gombok"

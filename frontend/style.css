@@ -9,6 +9,7 @@ body {
     border: 1px solid black;
   }
   table {
+    background-color: pink  !important;
     margin: 10px;
     width: 100%;
     height: auto;
@@ -18,10 +19,29 @@ body {
     margin: auto;
   }
   .valid {
-    color: green;
+    color: green ;
   }
   .invalid {
     color: red;
   }
-  
+  a {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+  }
+  .Tablak{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .egynev{
+    background-color: rgb(144, 229, 204);
+    max-width: fit-content;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  button{
+    margin: 2px;
+    border-radius: 5px;
+  }
   

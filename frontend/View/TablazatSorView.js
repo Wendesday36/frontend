@@ -11,17 +11,19 @@ class TablazatSor{
       this.megse = this.sorElem.children("td").children(".megse");
       this.torol = this.sorElem.children("td").children(".torol");
       this.megse.hide()
-      //console.log(this.pipa)
+      /* console.log(this.pipa)
+      console.log(this.megse)
+      console.log(this.torol) */
       this.pipa.on("click",()=>{
-          //console.log(this)
-          this.sorElem.css("background-color","lightgreen")
+          console.log(this)
+          this.sorElem.css("background-color","lightgreen !important")
           this.megse.show()
           this.pipa.hide()
           this.#esemenyTrigger("kesz")
       })
       
       this.torol.on("click",()=>{
-         // console.log(this)
+         console.log(this)
           this.sorElem.remove();
           this.#esemenyTrigger("torles")
           
@@ -29,7 +31,7 @@ class TablazatSor{
       
       this.megse.on("click",()=>{
           this.sorElem.css("background-color","rgb(245, 246, 246)")
-          //console.log(this)
+          console.log(this)
           this.megse.hide()
           this.pipa.show()
           this.#esemenyTrigger("megse")
@@ -52,7 +54,7 @@ class TablazatSor{
       this.tablaElem.append(txt);
     }
     #esemenyTrigger(esemenynev){
-      const esemenyem = new CustomEvent(esemenynev,{detail:this.index})
+      const esemenyem = new CustomEvent(esemenynev,{detail:{id:this.#adat.id,sorElem:this.sorElem}})
       window.dispatchEvent(esemenyem)
     }
 }
