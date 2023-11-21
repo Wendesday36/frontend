@@ -10,6 +10,7 @@ class TablazatSor{
       this.pipa = this.sorElem.children("td").children(".kesz");
       this.megse = this.sorElem.children("td").children(".megse");
       this.torol = this.sorElem.children("td").children(".torol");
+      this.modosit = this.sorElem.children("td").children(".modosit");
       this.megse.hide()
       /* console.log(this.pipa)
       console.log(this.megse)
@@ -28,6 +29,12 @@ class TablazatSor{
           this.#esemenyTrigger("torles")
           
       })
+      this.modosit.on("click",()=>{
+        console.log(this)
+        
+         this.#esemenyTrigger("modosit")
+         
+     })
       
       this.megse.on("click",()=>{
           this.sorElem.css("background-color","rgb(245, 246, 246)")
@@ -36,6 +43,7 @@ class TablazatSor{
           this.pipa.show()
           this.#esemenyTrigger("megse")
       })
+      
     }
     #sor() {
       let txt = "";
@@ -47,7 +55,8 @@ class TablazatSor{
       }
       txt += `<td><span  class="torol" >🗑️</span>
       <span   class="kesz">✅</span> 
-      <span   class="megse" >❌</span> </td>`;
+      <span   class="megse" >❌</span>
+      <span   class="modosit" >✍🏻</span> </td>`;
       txt += `</tr>`;
      
   
